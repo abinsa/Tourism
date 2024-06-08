@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{#{% load crispy_forms_tags %}#}
+
+{% block content %}
+
+{% csrf_token %}
+<html lang="en">
+<body>
+    <header>
+       <h1>CHECKOUT</h1>
+    </header>
+    <section>
+        <div>
+           <form method="POST" action="{% url 'blog:savecheckout' %}">
+               {% csrf_token %}
+                <table>
+                    <tr>
+                        <th>User :</th>
+                        <td>{{ user }}</td>
+                    </tr>
+                    <tr>
+                        <th>First Name:</th>
+                        <td><input type="text" name="first_name" placeholder="Enter your Name" class="aa"></td>
+                    </tr>
+                    <tr>
+                        <th>Last Name:</th>
+                        <td><input type="text" name="second_name" placeholder="Enter your Name" class="aa"></td>
+                    </tr>
+                    <tr>
+                        <th>Email:</th>
+                        <td><input type="email" name="email" placeholder="Enter your Email" class="aa"></td>
+                    </tr>
+                    <tr>
+                        <th>Address:</th>
+                        <td><textarea name="address" cols="31" rows="5" placeholder="Enter your address" maxlength="200"></textarea></td>
+                    </tr>
+                    <tr>
+                        <th>State:</th>
+                        <td><input type="text" name="state" placeholder="Enter your State" class="aa"></td>
+                    </tr>
+                    <tr>
+                        <th>District:</th>
+                        <td><input type="text" name="district" placeholder="Enter your District" class="aa"></td>
+                    </tr>
+                    <tr>
+                        <th>Pin:</th>
+                        <td><input type="tel" name="pin" placeholder="Enter your pincode" maxlength="6" class="aa"></td>
+                    </tr>
+                    <tr>
+                        <th>Phone:</th>
+                        <td><input type="tel" name="phone" placeholder="Enter your phone" maxlength="10" class="aa"></td>
+                    </tr>
+                    <tr>
+                        <th>Tour Date:</th>
+                        <td><input type="date" name="tour_date" class="aa"></td>
+                    </tr>
+                    <tr>
+                        <th>Tour Travellers:</th>
+                        <td><input type="number" name="tour_travellers" placeholder="Enter number of travellers" class="aa"></td>
+                    </tr>
+                </table>
+                <input type="submit" value="Continue" class="btn">
+            </form>
+        </div>
+    </section>
+    <style>
+        *{
+      margin: 0;
+      box-sizing: border-box;
+      padding: 0;
+  
+  }
+  
+  body{
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+  
+  }
+  
+  header {
+      background:blue;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 30px;
+      display: flex;
+  
+  }
+  
+  header div {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: space-between;
+  
+  }
+  
+  header div a {
+      text-decoration: none;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+  }
+  
+  header div p {
+      color: lightgray;
+      font-size: 10px;
+      font-weight: 400;
+  }
+  
+  section {
+      background-image: url("bgimage.jpg");
+      width: 100%;
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      text-align: center;
+  }
+  
+  section h1 {
+      text-align: center;
+      color: white;
+      padding: 30px;
+  }
+  
+  section div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 80vh;
+  }
+  
+  section div form {
+      background-color: lightgray;
+      padding: 30px 100px;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  section div form p {
+      text-align: center;
+      padding-bottom: 10px;
+  }
+  
+  section div form table {
+      width: 100%;
+  }
+  
+  section div form table th{
+      width: 50%;
+      text-align: right;
+      padding: 10px 5px;
+      vertical-align: top;
+      font-size: 13px;
+      font-weight: normal;
+  
+  }
+  
+  section div form table td{
+      text-align: left;
+      width: 50%;
+      font-size: 13px;
+      font-weight: normal;
+      padding: 10px 5px;
+  }
+  
+  .btn {
+      background-color: blue;
+      color: white;
+      width: 100px;
+      align-self : center;
+      padding: 8px 15px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  }
+  .btn:hover {
+      background-color: white;
+      color: blue;
+  }
+  
+  .aa {
+      width:250px;
+      height: 25px;
+      padding: 10px 5px;
+      outline: none;
+  }
+  
+  .a1 {
+      width: 150px;
+      padding: 4px;
+  }
+
+    </style>
+ </body>
+ </html>
+
+{% endblock content %}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VENDOR REQUEST FORM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+        h3{
+            text-align: center;
+            font-family:'Times New Roman', Times, serif;
+            color:#333;
+        }
+        table tr{
+            background-color: rgb(212, 117, 141);
+        }
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box; /* ensures padding and border are included in width */
+        }
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VENDOR REQUEST FORM</h1>
+    </header>
+    <table>
+        <tr>
+            <th>User :</th>
+            <td>{{ user }}</td>
+        </tr>
+    </table>
+    <h3>
+        If you want to become an VENDOR, type  your username in the form that appears
+    </h3>
+    <form action="{% url 'blog:vendor_req_save' %}" method="post">
+        {% csrf_token %}
+        <label for="vendoruser">Username :</label>
+        <input type="text" name="vendoruser" required placeholder="Enter Your Username"><br>
+        <button type="submit" id="btn">Submit</button>
+    </form>
+</body>
+</html>
