@@ -29,7 +29,7 @@ class Hotelcheckout(models.Model):
     email = models.CharField(max_length=50,null=True)
     address = models.CharField(max_length=50,null=True)
     phone = models.CharField(null=True, max_length=10)
-    tour_date = models.CharField(null=True,default=None)
+    tour_date = models.CharField(max_length=10,null=True,default=None)
     tour_travellers = models.IntegerField(null=True)
 
 class Customer(models.Model):
