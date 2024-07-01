@@ -218,6 +218,7 @@ def tours_list(request):
 
 # ------------ Login / Sign UP operations -----------------
 
+@login_required(login_url='blog:login')
 def vendor_req(request):
     return render(request, 'accounts/vendor_request.html')
 
