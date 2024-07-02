@@ -1,9 +1,9 @@
-{% extends 'admin/base_admin.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block title %} Tour Detail {% endblock %}
 
 {% block content %}
-
+{% if not user.is_staff %}
     <div class="showcase">
         <div class="container">
             <div class="showcase__text">
@@ -15,29 +15,34 @@
     <div class="tour" style="margin: 50px 0;">
         <div class="container">
 
-            <div class="tour__desc">
-                Description: {{ tour.description }}
-            </div>
-            <br>
-            <div > Duration of the tour:  {{ tour.duration }}</div>
-            <br>
-            <div > Start Day:  {{ tour.started }}</div>
-            <br>
-            <div > Price of the tour:  {{ tour.price }}</div>
-            <br>
-            <div > Expiry of the tour:  {{ tour.expiry }}</div>
-            <br>
-            <div class="">
-				<img src="{% static "uploads/" %}{{ tour.image }}" alt="" height="400px">
+            <div class="row">
+
+                <div class="col-lg-6 ">
+                    <img class="img-fluid rounded" src="{% static "uploads/" %}{{ tour.image }}" alt="" height="400px">
+                </div>
+
+                <div class="col-lg-6 ">
+                    <div class="tour__desc">
+                    Description: <br><br> {{ tour.description }}
+                    </div>
+                    <br>
+                    <div > Duration of the tour: - {{ tour.duration }}</div>
+                    <br>
+                    <div > Started Day: - {{ tour.started }}</div>
+                    <br>
+                    <div > Price of the tour: - {{ tour.price }}</div>
+                    <br>
+                    <div > Expiry of the tour: - {{ tour.expiry }}</div>
+                    <br>
+                    <a href="{% url 'blog:add_to_cart' id=tour.id %}" class="btn">Order</a>
             </div>
 
-            <br><hr>
-            <a href="{% url 'blog:tour_edit' id=tour.id%}" class="btn btn-primary">Edit</a>
-            <a href="{% url 'blog:tour_delete' id=tour.id%}" class="btn btn-danger">Delete</a>
+            </div>
 
         </div>
 
 
     </div>
+{% endif %}
 
 {% endblock %}
